@@ -1,128 +1,52 @@
+# 💳 Credit Card Fraud Detection Dashboard
 
-# 💳 Credit Card Fraud Analysis Dashboard | Power BI
+This is a Power BI dashboard I built as part of my Data Visualization practice as a Data Science student. I wanted to work with a real dataset and understand how data visualization can make unusual transaction patterns easier to explore.
 
-An interactive **Power BI dashboard** designed to analyze credit card transactions, explore fraud patterns, and transform raw transaction data into meaningful insights.
+The project looks at historical credit card transactions and compares fraudulent and legitimate activity. It is a **data analysis and visualization project**, not a machine learning fraud detection system.
 
-## 📌 Project Overview
+## 📊 Dataset
 
-Credit card fraud is a major challenge in the financial industry. Analyzing transaction data can help identify patterns associated with fraudulent activities.
+I used the [Credit Card Fraud Detection dataset on Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
 
-This project focuses on developing an interactive dashboard using **Microsoft Power BI** to explore historical credit card transactions and compare fraudulent and legitimate activities.
+| Dataset summary | Value |
+| --- | ---: |
+| Total transactions | 284,807 |
+| Legitimate transactions | 284,315 |
+| Fraudulent transactions | 492 |
+| Fraud rate | About 0.17% |
 
-The dashboard provides an overview of transaction behavior, fraud rates, transaction amounts, and anonymized numerical features.
+The dataset contains `Time`, `Amount`, `Class`, and anonymized features `V1` to `V28`. In the `Class` column, **0 means legitimate** and **1 means fraud**. The transaction amounts do not have a specified currency.
 
-## 🎯 Project Objectives
+I did not upload the raw CSV because it is large. You can download it from the Kaggle link above.
 
-- Analyze fraudulent and legitimate transactions.
-- Calculate fraud rates and transaction statistics.
-- Explore transaction amount distributions.
-- Identify patterns in historical fraudulent transactions.
-- Develop interactive data visualizations.
-- Present findings through an organized Power BI dashboard.
+## 🖥️ What's in the dashboard?
 
-## 📊 Dashboard Features
+I organized the report into three pages:
 
-### 1. Executive Overview
+**1. Overview** — A quick look at total transactions, fraud count, legitimate transactions, fraud rate, average transaction amount, and some basic comparisons.
 
-Provides a high-level summary of transaction data.
+**2. Fraud Pattern Analysis** — Charts to compare fraud rates and counts across transaction amount ranges, along with a comparison of the anonymized V1–V5 features. Filters help explore different groups.
 
-**Key Performance Indicators (KPIs):**
-- Total Transactions
-- Fraud Transactions
-- Legitimate Transactions
-- Fraud Rate (%)
-- Average Transaction Amount
+**3. Transaction Explorer** — A table for looking more closely at individual transactions, with filters for transaction class and amount range.
 
-**Visualizations:**
-- Fraud vs. Legitimate Transactions
-- Transaction Distribution
-- Transaction Trends
-- Transaction Amount Analysis
+## 📸 Dashboard screenshots
 
-### 2. Fraud Pattern Analysis
+Here are screenshots from the Power BI report:
 
-Explores patterns and differences between fraudulent and legitimate transactions.
+![Dashboard screenshot 1](screenshots/Screenshot%202026-11-22%20190954.png)
 
-**Features:**
-- Fraud Rate Comparisons
-- Transaction Amount Analysis
-- Elapsed-Time Transaction Trends
-- V1–V5 Feature Comparisons
-- Interactive Filters and Slicers
+![Dashboard screenshot 2](screenshots/Screenshot%202026-11-22%20191057.png)
 
-### 3. Transaction Explorer
+![Dashboard screenshot 3](screenshots/Screenshot%202026-11-22%20191135.png)
 
-Allows users to explore transaction-level information.
+## 🛠️ Tools I used
 
-**Features:**
-- Transaction Data Table
-- Fraud and Legitimate Transaction Filtering
-- Supporting Summary Charts
-- Interactive Data Exploration
+- **Power BI Desktop** to build the dashboard and charts
+- **Power Query** to load and prepare the data
+- **DAX** to calculate KPIs such as fraud rate and transaction counts
+- **Git and GitHub** to share and document the project
 
-## 🛠️ Tools & Technologies
-
-| Technology | Purpose |
-|------------|---------|
-| Power BI Desktop | Dashboard Development |
-| Power Query | Data Import and Transformation |
-| DAX | Measures and KPI Calculations |
-| CSV | Dataset Format |
-| GitHub | Version Control and Documentation |
-
-## 📂 Dataset
-
-This project uses the **Credit Card Fraud Detection Dataset**, available on Kaggle.
-
-**Dataset Source:**
-https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
-
-### Dataset Features
-
-| Feature | Description |
-|---------|-------------|
-| Time | Seconds elapsed from the first transaction |
-| V1–V28 | Anonymized numerical features |
-| Amount | Transaction amount |
-| Class | Transaction classification |
-
-**Target Variable:**
-- `0` = Legitimate Transaction
-- `1` = Fraudulent Transaction
-
-The dataset is highly imbalanced, with fraudulent transactions representing a very small percentage of total transactions.
-
-## 📐 DAX Measures
-
-The dashboard uses DAX measures to calculate important metrics.
-
-### Total Transactions
-
-```dax
-Total Transactions = COUNTROWS('creditcard')
-```
-
-### Fraud Transactions
-
-```dax
-Fraud Transactions =
-CALCULATE(
-    COUNTROWS('creditcard'),
-    'creditcard'[Class] = 1
-)
-```
-
-### Legitimate Transactions
-
-```dax
-Legitimate Transactions =
-CALCULATE(
-    COUNTROWS('creditcard'),
-    'creditcard'[Class] = 0
-)
-```
-
-### Fraud Rate
+For example, this is the DAX measure I used to calculate fraud rate:
 
 ```dax
 Fraud Rate =
@@ -133,101 +57,41 @@ DIVIDE(
 )
 ```
 
-Format the Fraud Rate measure as a percentage.
+## 🔍 What I learned
 
-*Note: These are example implementations. The field and measure names should match the Power BI model.*
+The biggest thing I noticed was how **imbalanced** the dataset is: only 492 out of 284,807 transactions are labeled as fraud. A simple count chart can hide such a small group, so fraud rates and focused comparisons are useful.
 
-## 🚀 How to Run the Project
+While building this project, I practiced creating DAX measures, designing KPI cards, working with slicers, organizing report pages, and making charts easier to read. I also learned how to upload a large Power BI file to GitHub using Git LFS.
 
-1. Clone or download this GitHub repository.
-2. Install Microsoft Power BI Desktop.
-3. Download the dataset from Kaggle.
-4. Extract `creditcard.csv`.
-5. Open `Credit_Card_Fraud_Dashboard.pbip` in Power BI Desktop.
-6. Open Power Query.
-7. Update the CSV source path to your local dataset location.
-8. Apply changes and refresh the data.
-9. Explore the interactive dashboard.
+## 🚀 How to open the project
 
-## 📁 Project Structure
+1. Install [Power BI Desktop](https://www.microsoft.com/en-us/power-platform/products/power-bi/desktop).
+2. Clone or download this repository. If cloning, install [Git LFS](https://git-lfs.com/) first so the Power BI file is downloaded correctly.
+3. Open **`Credit_Card_Fraud_Dashboard.pbix`** in Power BI Desktop.
+4. If Power BI asks for the CSV source, download the dataset from Kaggle, update the file path in **Transform data → Data source settings**, and refresh.
+
+## 📁 Repository files
 
 ```text
-Credit-Card-Fraud-Analysis-Dashboard/
-│
+Credit-Card-Fraud-Detection-Dashboard/
+├── Credit_Card_Fraud_Dashboard.pbix
 ├── README.md
+├── .gitattributes
 ├── .gitignore
-│
-├── Credit_Card_Fraud_Dashboard.pbip
-│
-├── Credit_Card_Fraud_Dashboard.Report/
-│
-├── Credit_Card_Fraud_Dashboard.SemanticModel/
-│
 └── screenshots/
-    ├── executive-overview.png
-    ├── fraud-pattern-analysis.png
-    └── transaction-explorer.png
+    ├── Screenshot 2026-11-22 190954.png
+    ├── Screenshot 2026-11-22 191057.png
+    └── Screenshot 2026-11-22 191135.png
 ```
 
-## 📸 Dashboard Screenshots
+## ⚠️ Limitations and next steps
 
-### Executive Overview
+This dashboard describes transactions that are already labeled. It does **not** predict fraud in new transactions. Also, because V1–V28 are anonymized, I cannot explain exactly what each feature represents.
 
-![Executive Overview](screenshots/executive-overview.png)
-
-### Fraud Pattern Analysis
-
-![Fraud Pattern Analysis](screenshots/fraud-pattern-analysis.png)
-
-### Transaction Explorer
-
-![Transaction Explorer](screenshots/transaction-explorer.png)
-
-*Screenshots should be added after verifying the report in Power BI Desktop.*
-
-## 📚 Key Learning Outcomes
-
-Through this project, I gained practical experience in:
-
-- Data analysis and visualization.
-- Creating interactive Power BI dashboards.
-- Writing DAX measures.
-- Data preparation using Power Query.
-- Understanding imbalanced datasets.
-- Building KPI cards and analytical charts.
-- Communicating insights through dashboards.
-- Managing and documenting projects on GitHub.
-
-## ⚠️ Project Limitations
-
-- The dashboard analyzes historical labeled transactions.
-- It does not currently implement a machine learning prediction model.
-- Anonymized features limit the interpretation of individual transaction characteristics.
-- Dataset refresh requires access to the original CSV file.
-
-## 🔮 Future Improvements
-
-- Add advanced fraud pattern analysis.
-- Implement drill-through reporting.
-- Improve interactive filtering capabilities.
-- Integrate Python-based fraud classification models.
-- Experiment with machine learning techniques.
-- Extend the dashboard with predictive analytics.
-
-## 📌 Project Status
-
-**Power BI dashboard developed — final Desktop verification required.**
-
-The project contains editable report and semantic model files.
-
-## 🤝 Connect With Me
-
-I'm a Data Science undergraduate passionate about data analytics, machine learning, artificial intelligence, and solving real-world problems using data.
-
-**LinkedIn:** https://www.linkedin.com/in/usman-shakir7/
-
-**GitHub:** https://github.com/Usmanshakir7
+In the future, I'd like to try building a machine learning model on the same dataset and compare its results with the patterns I explored in Power BI.
 
 ---
 
-⭐ If you find this project useful, consider giving the repository a star!
+**Made by a Data Science undergraduate**
+
+[GitHub](https://github.com/Usmanshakir7) · [LinkedIn](https://www.linkedin.com/in/usman-shakir7/)
