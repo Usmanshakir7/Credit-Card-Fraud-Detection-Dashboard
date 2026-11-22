@@ -92,6 +92,6 @@ In the future, I'd like to try building a machine learning model on the same dat
 
 ---
 
-**Made by a Data Science undergraduate**
+**Made by CH.M.U.S**
 
 [GitHub](https://github.com/Usmanshakir7) · [LinkedIn](https://www.linkedin.com/in/usman-shakir7/)
