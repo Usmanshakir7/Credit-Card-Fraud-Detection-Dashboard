@@ -35,19 +35,19 @@ I organized the report into three pages:
 
 A summary of the transaction dataset, with KPI cards, fraud versus legitimate transactions, fraud by elapsed hour, and average transaction amount by class.
 
-![Executive Overview](screenshots/Screenshot%202026-11-22%20190954.png)
+![Executive Overview](screenshots/Screenshot%202026-11-27%20010151.png)
 
 ### 2. Fraud Pattern Analysis
 
 Compare fraud counts and rates across amount ranges. The 0–49 range has the most fraud cases (305), while the 500–999 range has the highest fraud rate (approximately 0.41%). This shows why both counts and rates matter.
 
-![Fraud Pattern Analysis](screenshots/Screenshot%202026-11-22%20191057.png)
+![Fraud Pattern Analysis](screenshots/Screenshot%202026-11-27%20003448.png)
 
 ### 3. Transaction Explorer
 
 Explore individual transactions using class and amount filters, with summary statistics that respond to the selection.
 
-![Transaction Explorer](screenshots/Screenshot%202026-11-22%20191135.png)
+![Transaction Explorer](screenshots/Screenshot%202026-11-27%20003546.png)
 
 ## Tools I used
 
@@ -89,9 +89,9 @@ Credit-Card-Fraud-Detection-Dashboard/
 ├── .gitattributes
 ├── .gitignore
 └── screenshots/
-    ├── Screenshot 2026-11-22 190954.png
-    ├── Screenshot 2026-11-22 191057.png
-    └── Screenshot 2026-11-22 191135.png
+    ├── Screenshot 2026-11-27 010151.png
+    ├── Screenshot 2026-11-27 003448.png
+    └── Screenshot 2026-11-27 003546.png
 ```
 
 ## Limitations and next steps
