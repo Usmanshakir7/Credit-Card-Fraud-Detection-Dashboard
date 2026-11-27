@@ -1,3 +1,4 @@
 *.csv
+!dataset/creditcard.csv
 *.tmp
 *.bak
